@@ -1,0 +1,21 @@
+dcf_precomp_menu               = Upload Precompressor
+
+dcf_precomp_headline         = Scale images automatically
+dcf_precomp_configuration    = Configuration
+dcf_precomp_max_pixel        = Max. size (pixel)
+dcf_precomp_jpg_quality      = JPG quality (percent)
+
+dcf_precomp_save             = Save
+dcf_precomp_cancel           = Cancel
+dcf_precomp_update           = Scale images
+
+dcf_precomp_headline_update     = Scale saved images
+dcf_precomp_confirm_update      = Really scale all images? This action cannot be undone!
+dcf_precomp_caption_images      = Number of images to be scaled:
+dcf_precomp_caption_progress    = Progress
+dcf_precomp_no_reload           = Please do not reload this page while the scaling is in progress.
+dcf_precomp_caption_finished    = Finished scaling images.
+
+dcf_precomp_config_dir_locked  = The configuration folder (./config) is locked.
+dcf_precomp_config_save_error  = Error saving configuration!
+dcf_precomp_config_saved       = Saved changes to configuration!

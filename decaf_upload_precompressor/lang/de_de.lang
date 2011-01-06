@@ -1,0 +1,23 @@
+dcf_precomp_menu               = Upload Precompressor
+
+dcf_precomp_headline           = Bilder automatisch verkleinern
+dcf_precomp_configuration      = Konfiguration
+
+; Form labels
+dcf_precomp_max_pixel          = Maximale Kantenl&auml;nge (Pixel)
+dcf_precomp_jpg_quality        = JPG Qualit&auml;t (Prozent)
+
+dcf_precomp_save               = Speichern
+dcf_precomp_cancel             = Abbrechen
+dcf_precomp_update             = Bilder skalieren
+
+dcf_precomp_headline_update     = Vorhandene Bilder skalieren
+dcf_precomp_confirm_update      = Wirklich alle Bilder skalieren? Diese Aktion kann nicht r&uuml;ckg&auml;ngig gemacht werden!
+dcf_precomp_caption_images      = Gefundene Bilder die skaliert werden:
+dcf_precomp_caption_progress    = Fortschritt
+dcf_precomp_no_reload           = Bitte laden Sie diese Seite nicht neu, solange die Skalierung l&auml;uft.
+dcf_precomp_caption_finished    = Fertig
+
+dcf_precomp_config_dir_locked  = Das Konfigurationsverzeichnis (./config) ist schreibgesch&uuml;tzt.
+dcf_precomp_config_save_error  = Fehler beim speichern der Konfiguration!
+dcf_precomp_config_saved       = Konfiguration erfolgreich gespeichert!

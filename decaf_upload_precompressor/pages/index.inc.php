@@ -1,0 +1,205 @@
+<?php
+/**
+ * decaf_upload_precompressor
+ *
+ * @author Sven Kesting <sk@decaf.de>
+ * @author <a href="http://www.decaf.de">www.decaf.de</a>
+ * @package redaxo4
+ * @version $Id: index.inc.php 21 2010-11-29 14:38:19Z sk $
+ */
+
+$mypage = 'decaf_upload_precompressor';
+
+$page = rex_request('page', 'string');
+
+require $REX['INCLUDE_PATH'].'/layout/top.php';
+rex_title($dcf_I18N->msg('dcf_precomp_headline'), $REX['ADDON']['pages'][$mypage]);
+
+
+if (rex_post('btn_save', 'string') != '')
+{
+  $file = $REX['INCLUDE_PATH'] .'/addons/'.$mypage.'/config/config.ini.php';
+  $message = rex_is_writable($file);
+
+  if($message === true)
+  {
+    $message  = $dcf_I18N->msg('dcf_precomp_config_save_error');
+    $tpl      = rex_get_file_contents($REX['INCLUDE_PATH'] .'/addons/'.$mypage.'/config/_config.ini.php');
+    $search   = array();
+    $replace  = array();
+
+    foreach($_POST as $key => $val)
+    {
+      $search[]   = '@@'.$key.'@@';
+      $replace[]  = $val;
+    }
+    $config_str = str_replace($search, $replace, $tpl);
+    if (file_put_contents($REX['INCLUDE_PATH'] .'/addons/'.$mypage.'/config/config.ini.php', $config_str))
+    {
+      $message  = $dcf_I18N->msg('dcf_precomp_config_saved');
+    }
+  }
+}
+
+if($message)
+{
+  echo rex_info($message);
+}
+
+
+
+$dcf_precomp_config = parse_ini_file($REX['INCLUDE_PATH']. '/addons/'.$mypage.'/config/config.ini.php', true);
+
+// check for large jpg in mediapool
+$scalable_mime_types = array('image/jpeg', 'image/jpg', 'image/pjpeg');
+$max_pixel = $dcf_precomp_config['dcf_precomp']['max_pixel'];
+
+
+
+$FILESQL = rex_sql::factory();
+// $FILESQL->debugsql = 1;
+$FILESQL->setTable($REX['TABLE_PREFIX'].'file');
+$where = "(";
+foreach ($scalable_mime_types as $type)
+{
+  $where .= 'filetype="'.$type.'" OR ';
+}
+$where = substr($where, 0, strlen($where)-3).') ';
+$where .= "AND (width > ".$max_pixel." OR height > ".$max_pixel.")";
+$FILESQL->setWhere($where);
+$FILESQL->select('*');
+
+$files = $FILESQL->getArray();
+
+if (rex_get('subpage') == 'scale') {
+  ob_end_clean();
+  $initial = rex_get('initial');
+  $progress = $initial - count($files);
+  if ($progress) {
+    $td_width=round( ( $progress / $initial ) * 100 );
+  } else {
+    $td_width = 0;
+  }
+  $td2_width = 100-$td_width;
+
+  if (rex_post('btn_update', 'string') != '' || rex_get('update_continue')) {
+    ob_start();
+    echo '<span style="font-family: sans-serif; font-size: 11px;">'.$dcf_I18N->msg('dcf_precomp_caption_progress').'</span><br />';
+    echo '<table cellpadding=0 cellspacing=0 border=0 style="height: 32px; width: 100%"><tr><td style="width: '.$td_width.'%; background: #189d44; color: #fff; font-size: 11px; font-weight: bold; font-family: sans-serif; text-align: left">&nbsp;&nbsp;'.$progress.'</td><td style="width:'.$td2_width.'%; text-align: right; font-size: 11px; font-weight: bold; font-family: sans-serif">&nbsp;</td></tr></table>';
+    if (!count($files))
+    {
+      echo '<br /><span style="font-family: sans-serif; font-size: 11px; font-weight: bold">'.$dcf_I18N->msg('dcf_precomp_caption_finished').'</span>';
+    } else
+    {
+      echo '<br /><span style="font-family: sans-serif; font-size: 11px;">'.$dcf_I18N->msg('dcf_precomp_no_reload').'</span>';
+    }
+    $i=0;
+    foreach($files as $file)
+    {
+      if ($file['width'] > $file['height'])
+      {
+        $ratio = $dcf_precomp_config['dcf_precomp']['max_pixel'] / $file['width'];
+      }
+      else
+      {
+        $ratio = $dcf_precomp_config['dcf_precomp']['max_pixel'] / $file['height'];
+      }
+      $newwidth = round($file['width'] * $ratio);
+      $newheight = round($file['height']  * $ratio);
+
+      // Load
+      $image = imagecreatetruecolor($newwidth, $newheight);
+      $source = imagecreatefromjpeg($REX['MEDIAFOLDER'].'/'.$file['filename']);
+
+      // Resize
+      imagecopyresized($image, $source, 0, 0, 0, 0, $newwidth, $newheight, $file['width'], $file['height']);
+
+      // save Image
+      imagejpeg($image, $REX['MEDIAFOLDER'].'/'.$file['filename'], $dcf_precomp_config['dcf_precomp']['jpg_quality']);
+
+      // update db entry
+      $size = @getimagesize($REX['MEDIAFOLDER'].'/'.$file['filename']);
+      $filesize = @filesize($REX['MEDIAFOLDER'].'/'.$file['filename']);
+
+      $FILESQL = rex_sql::factory();
+      // $FILESQL->debugsql = 1;
+      $FILESQL->setTable($REX['TABLE_PREFIX'].'file');
+      $FILESQL->setWhere('file_id="'. $file['file_id'].'"');
+      $FILESQL->setValue('filesize',$filesize);
+      $FILESQL->setValue('width',$size[0]);
+      $FILESQL->setValue('height',$size[1]);
+      $FILESQL->update();
+
+      $i++;
+      if ($i>=10 || $file == end($files))
+      {
+        echo '<script>
+          document.location.href="index.php?page=decaf_upload_precompressor&subpage=scale&update_continue=1&initial='.$initial.'";
+        </script>';
+        flush();
+        ob_flush();
+        exit;
+      }
+    }
+  }
+  flush();
+  ob_flush();
+  exit;
+}
+
+
+?>
+<div class="rex-addon-output">
+  <div id="rex-addon-editmode" class="rex-form">
+    <form action="" method="post">
+      <fieldset class="rex-form-col-1">
+        <div class="rex-form-wrapper">
+          <h3 class="rex-hl2"><?php echo $dcf_I18N->msg('dcf_precomp_configuration'); ?></h3>
+          <div class="rex-form-row">
+            <p class="rex-form-col-a rex-form-text">
+              <label for="max_width"><?php echo $dcf_I18N->msg('dcf_precomp_max_pixel'); ?></label>
+              <input type="text" name="max_pixel" id="max_pixel" value="<?php echo $dcf_precomp_config['dcf_precomp']['max_pixel'] ?>" />
+            </p>
+          </div>
+          <div class="rex-form-row">
+            <p class="rex-form-col-a rex-form-text">
+              <label for="jpg_quality"><?php echo $dcf_I18N->msg('dcf_precomp_jpg_quality'); ?></label>
+              <input type="text" name="jpg_quality" id="jpg_quality" value="<?php echo $dcf_precomp_config['dcf_precomp']['jpg_quality'] ?>" />
+            </p>
+          </div>
+        </div>
+      </fieldset>
+      <div class="rex-form-row">
+        <p class="rex-form-submit">
+          <input type="submit" class="rex-form-submit" name="btn_save" value="<?php echo $dcf_I18N->msg('dcf_precomp_save') ?>" />
+        </p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<?php if (count($files)): ?>
+  <div class="rex-addon-output">
+    <div id="rex-addon-editmode" class="rex-form">
+      <form action="index.php?subpage=scale&amp;page=decaf_upload_precompressor&amp;initial=<?php echo count($files) ?>" method="post" target="scaling_frame">
+        <fieldset class="rex-form-col-1">
+          <div class="rex-form-wrapper">
+            <div class="rex-form-row">
+              <h3 class="rex-hl2"><?php echo $dcf_I18N->msg('dcf_precomp_headline_update') ?> (<?php echo count($files) ?>)</h3>
+            </div>
+            <div class="rex-form-row">
+              <p class="rex-form-submit">
+                <input type="submit" class="rex-form-submit" name="btn_update" value="<?php echo $dcf_I18N->msg('dcf_precomp_update') ?>" onclick="if(!confirm('<?php echo $dcf_I18N->msg('dcf_precomp_confirm_update') ?>')) return false;" />
+              </p>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
+  <iframe src="index.php?page=decaf_upload_precompressor&amp;subpage=scale&amp;initial=<?php echo count($files) ?>" name="scaling_frame" width="750" height="120" align="left" scrolling="no" marginheight="0" marginwidth="0" frameborder="0"></iframe>
+
+<?php endif ?>
+<?php
+  require $REX['INCLUDE_PATH'].'/layout/bottom.php';

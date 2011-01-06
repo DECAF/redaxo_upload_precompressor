@@ -1,23 +1,26 @@
-dcf_precomp_menu               = Upload Precompressor
+dcf_precomp_menu                = Bildverkleinerung
 
-dcf_precomp_headline           = Bilder automatisch verkleinern
-dcf_precomp_configuration      = Konfiguration
+dcf_precomp_headline            = Bilder beim Upload verkleinern
+dcf_precomp_configuration       = Konfiguration
 
-; Form labels
-dcf_precomp_max_pixel          = Maximale Kantenlänge (Pixel)
-dcf_precomp_jpg_quality        = JPG Qualit&auml;t (Prozent)
+dcf_precomp_max_pixel           = Max. Kantenlänge (px)
+dcf_precomp_max_pixel_notice    = Bilder werden beim Upload in den Medienpool automatisch auf diese maximale Kantenlänge verkleinert.
+dcf_precomp_jpg_quality         = JPG-Qualität (Prozent)
+dcf_precomp_jpg_quality_notice  = Qualität der verkleinerten Bilder im Medienpool.
 
-dcf_precomp_save               = Speichern
-dcf_precomp_cancel             = Abbrechen
-dcf_precomp_update             = Bilder skalieren
+dcf_precomp_save                = Speichern
+dcf_precomp_cancel              = Abbrechen
+dcf_precomp_update              = Bilder jetzt verkleinern
 
-dcf_precomp_headline_update     = Vorhandene Bilder skalieren
-dcf_precomp_confirm_update      = Wirklich alle Bilder skalieren? Diese Aktion kann nicht r&uuml;ckg&auml;ngig gemacht werden!
-dcf_precomp_caption_images      = Gefundene Bilder die skaliert werden:
+dcf_precomp_headline_update     = Vorhandene Bilder verkleinern
+dcf_precomp_info_update         = Diese Aktion verkleinert alle Bilder im Medienpool, die größer sind als in der Konfiguration oben angegeben.
+dcf_precomp_backup_update       = Bitte beachten: Es werden die originalen Bilder verkleinert, die Aktion kann deshalb nicht rückgängig gemacht werden! Es ist ratsam, vor der Aktion ein Backup des Medienordners anzulegen.
+dcf_precomp_confirm_update      = Wirklich alle Bilder verkleinern? Diese Aktion kann nicht rückgängig gemacht werden!
+dcf_precomp_caption_images      = Gefundene Bilder, die verkleinert werden:
 dcf_precomp_caption_progress    = Fortschritt
-dcf_precomp_no_reload           = Bitte laden Sie diese Seite nicht neu, solange die Skalierung l&auml;uft.
-dcf_precomp_caption_finished    = Fertig
+dcf_precomp_no_reload           = Bitte laden Sie diese Seite nicht neu, solange die Verkleinerung läuft!
+dcf_precomp_caption_finished    = Fertig!
 
-dcf_precomp_config_dir_locked  = Das Konfigurationsverzeichnis (./config) ist schreibgesch&uuml;tzt.
-dcf_precomp_config_save_error  = Fehler beim speichern der Konfiguration!
-dcf_precomp_config_saved       = Konfiguration erfolgreich gespeichert!
+dcf_precomp_config_dir_locked   = Das Konfigurationsverzeichnis (./config) ist schreibgeschützt.
+dcf_precomp_config_save_error   = Fehler beim speichern der Konfiguration!
+dcf_precomp_config_saved        = Konfiguration erfolgreich gespeichert!

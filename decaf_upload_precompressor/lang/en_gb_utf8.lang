@@ -1,21 +1,26 @@
-dcf_precomp_menu               = Upload Precompressor
+dcf_precomp_menu                = Image compressor
 
-dcf_precomp_headline         = Scale images automatically
-dcf_precomp_configuration    = Configuration
-dcf_precomp_max_pixel        = Max. size (pixel)
-dcf_precomp_jpg_quality      = JPG quality (percent)
+dcf_precomp_headline            = Scale down images on upload
+dcf_precomp_configuration       = Configuration
 
-dcf_precomp_save             = Save
-dcf_precomp_cancel           = Cancel
-dcf_precomp_update           = Scale images
+dcf_precomp_max_pixel           = Max. size (pixel)
+dcf_precomp_max_pixel_notice    = Images will be reduced to the specified max size when uploaded to the media pool.
+dcf_precomp_jpg_quality         = JPG quality (percent)
+dcf_precomp_jpg_quality_notice  = Quality of the reduced images in the media pool.
 
-dcf_precomp_headline_update     = Scale saved images
-dcf_precomp_confirm_update      = Really scale all images? This action cannot be undone!
-dcf_precomp_caption_images      = Number of images to be scaled:
+dcf_precomp_save                = Save
+dcf_precomp_cancel              = Cancel
+dcf_precomp_update              = Scale down images now
+
+dcf_precomp_headline_update     = Scale down existent images
+dcf_precomp_info_update         = This action scales down any existent image inside the media pool exceeding the specified dimensions above.
+dcf_precomp_backup_update       = Important: The addon will scale down the original images and therefore the action cannot be undone! We recommend to create a backup of the media folder before running the scaling process.
+dcf_precomp_confirm_update      = Really scale down all images? This action cannot be undone!
+dcf_precomp_caption_images      = Number of images to be scaled down:
 dcf_precomp_caption_progress    = Progress
-dcf_precomp_no_reload           = Please do not reload this page while the scaling is in progress.
-dcf_precomp_caption_finished    = Finished scaling images.
+dcf_precomp_no_reload           = Please do not reload this page while the scaling is in progress!
+dcf_precomp_caption_finished    = Finished scaling images!
 
-dcf_precomp_config_dir_locked  = The configuration folder (./config) is locked.
-dcf_precomp_config_save_error  = Error saving configuration!
-dcf_precomp_config_saved       = Saved changes to configuration!
+dcf_precomp_config_dir_locked   = The configuration folder (./config) is locked.
+dcf_precomp_config_save_error   = Error saving configuration!
+dcf_precomp_config_saved        = Saved changes to configuration!

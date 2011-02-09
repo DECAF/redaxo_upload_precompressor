@@ -66,8 +66,8 @@ foreach ($scalable_mime_types as $type)
 }
 $where = substr($where, 0, strlen($where)-3).') ';
 $where .= "AND (width > ".$max_pixel." OR height > ".$max_pixel.")";
-$FILESQL->setWhere($where);
-$FILESQL->select('*');
+$FILESQL->setWhere($where . ' ORDER BY pixel asc'); // rex_sql has no special method for adding sort-order, yay!
+$FILESQL->select('*, (width * height) AS pixel');
 
 $files = $FILESQL->getArray();
 
@@ -211,3 +211,6 @@ if (rex_get('subpage') == 'scale') {
 <?php endif ?>
 <?php
   require $REX['INCLUDE_PATH'].'/layout/bottom.php';
+
+  $used_mem = round((memory_get_usage(TRUE) / 1024 / 1024), 2);
+  echo $used_mem.'MB';

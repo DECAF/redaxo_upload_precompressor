@@ -14,12 +14,12 @@ $base_path = $REX['INCLUDE_PATH'] .'/addons/'.$mypage;
 
 if ($REX['REDAXO'])
 {
-  if ($lang == 'default')
+  if ($REX['LANG'] == 'default')
   {
     $be_lang = 'de_de_utf8';
   } 
   else {
-    $be_lang = $lang;
+    $be_lang = $REX['LANG'];
   }
   $dcf_I18N = new i18n($be_lang, $REX['INCLUDE_PATH'].'/addons/'.$mypage.'/lang/');
   $dcf_I18N->loadTexts();
@@ -73,7 +73,7 @@ else
 function getMemoryLimitInMb()
 {
   $ml = @ini_get('memory_limit');
-  if ($ml == -1) return -1;
+  if ($ml == 0) return -1;
   $unit = substr($ml,strlen($ml)-1, 1);
   switch ($unit) {
     case 'G' :

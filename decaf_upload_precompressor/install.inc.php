@@ -29,7 +29,7 @@ $error = false;
 $err_msg = array();
 
 // check for REX version < 4.3
-if ($REX['VERSION'] <= 4 && $REX['SUBVERSION'] < 3)
+if ( ($REX['VERSION'] < 4) || ($REX['VERSION'] == 4 && $REX['SUBVERSION'] < 3) )
 {
   $err_msg[] = $dcf_I18N->msg('dcf_precomp_rex_version');
   $error = true;

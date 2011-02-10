@@ -21,12 +21,12 @@ $REX['ADDON']['perm'][$mypage]    = "admin[]";
 if ($REX['REDAXO'])
 {
   // looad localized strings
-  if ($lang == 'default')
+  if ($REX['LANG'] == 'default')
   {
     $be_lang = 'de_de_utf8';
   } 
   else {
-    $be_lang = $lang;
+    $be_lang = $REX['LANG'];
   }
 
   $dcf_I18N = new i18n($be_lang, $REX['INCLUDE_PATH'].'/addons/'.$mypage.'/lang/');

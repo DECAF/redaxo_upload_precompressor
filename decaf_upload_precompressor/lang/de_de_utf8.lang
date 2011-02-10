@@ -1,20 +1,22 @@
 dcf_precomp_menu                = Bildverkleinerung
 
 dcf_precomp_headline            = Bilder beim Upload verkleinern
-dcf_precomp_configuration       = Konfiguration
 
+dcf_precomp_intro               = <strong>Bitte beachten:</strong> Das Skalieren von Bildern erfordert viel Arbeitsspeicher vom Server. Reicht der Speicher nicht aus, wird der Server mit einer Fehlermeldung (»Fatal error«) abbrechen. Dies kann vom Addon leider nicht unterbunden werden. Ein Schaden sollte dabei nicht entstehen. Die Website muss danach vom Benutzer manuell neu aufgerufen werden.<br />Empfohlener Arbeitsspeicher bei der Verwendung dieses Addons: Mindestens 32 MB, besser 64 MB.
+
+dcf_precomp_configuration       = Konfiguration
 dcf_precomp_max_pixel           = Max. Kantenlänge (px)
 dcf_precomp_max_pixel_notice    = Bilder werden beim Upload in den Medienpool automatisch auf diese maximale Kantenlänge verkleinert.
 dcf_precomp_jpg_quality         = JPG-Qualität (Prozent)
 dcf_precomp_jpg_quality_notice  = Qualität der verkleinerten Bilder im Medienpool.
 
-dcf_precomp_save                = Speichern
+dcf_precomp_save                = Konfiguration speichern
 dcf_precomp_cancel              = Abbrechen
 dcf_precomp_update              = Bilder jetzt verkleinern
 
 dcf_precomp_headline_update     = Vorhandene Bilder verkleinern
 dcf_precomp_info_update         = Diese Aktion verkleinert alle Bilder im Medienpool, die größer sind als in der Konfiguration oben angegeben.
-dcf_precomp_backup_update       = Bitte beachten: Es werden die originalen Bilder verkleinert, die Aktion kann deshalb nicht rückgängig gemacht werden! Es ist ratsam, vor der Aktion ein Backup des Medienordners anzulegen.
+dcf_precomp_backup_update       = Bitte beachten: Es werden die originalen Bilder verkleinert, die Aktion kann deshalb nicht rückgängig gemacht werden! Es ist ratsam, vor der Aktion ein <strong>Backup des Medienordners</strong> anzulegen.
 dcf_precomp_confirm_update      = Wirklich alle Bilder verkleinern? Diese Aktion kann nicht rückgängig gemacht werden!
 dcf_precomp_caption_images      = Gefundene Bilder, die verkleinert werden:
 dcf_precomp_caption_progress    = Fortschritt

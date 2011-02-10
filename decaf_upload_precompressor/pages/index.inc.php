@@ -150,40 +150,53 @@ if (rex_get('subpage') == 'scale') {
 
 ?>
 <div class="rex-addon-output">
-  <div id="rex-addon-editmode" class="rex-form">
+  <div class="rex-form">
     <form action="" method="post">
-      <fieldset class="rex-form-col-1">
+
+      <fieldset>
         <div class="rex-form-wrapper">
-          <h3 class="rex-hl2"><?php echo $dcf_I18N->msg('dcf_precomp_configuration'); ?></h3>
+          <h3 class="rex-hl2">Upload Precompressor</h3>
+          <div class="rex-area-content">
+            <p class="rex-tx1"><?php echo $dcf_I18N->msg('dcf_precomp_intro'); ?></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="rex-form-col-1">
+        <legend><?php echo $dcf_I18N->msg('dcf_precomp_configuration'); ?></legend>
+        <div class="rex-form-wrapper">
           <div class="rex-form-row">
             <p class="rex-form-col-a rex-form-text">
               <label for="max_width"><?php echo $dcf_I18N->msg('dcf_precomp_max_pixel'); ?></label>
-              <input type="text" name="max_pixel" id="max_pixel" value="<?php echo $dcf_precomp_config['dcf_precomp']['max_pixel'] ?>" />
+              <input class="rex-form-text" style="width: 100px;" type="text" name="max_pixel" id="max_pixel" value="<?php echo $dcf_precomp_config['dcf_precomp']['max_pixel'] ?>" />
               <span class="rex-form-notice"><?php echo $dcf_I18N->msg('dcf_precomp_max_pixel_notice'); ?></span>
             </p>
           </div>
           <div class="rex-form-row">
             <p class="rex-form-col-a rex-form-text">
               <label for="jpg_quality"><?php echo $dcf_I18N->msg('dcf_precomp_jpg_quality'); ?></label>
-              <input type="text" name="jpg_quality" id="jpg_quality" value="<?php echo $dcf_precomp_config['dcf_precomp']['jpg_quality'] ?>" />
+              <input class="rex-form-text" style="width: 100px;" type="text" name="jpg_quality" id="jpg_quality" value="<?php echo $dcf_precomp_config['dcf_precomp']['jpg_quality'] ?>" />
               <span class="rex-form-notice"><?php echo $dcf_I18N->msg('dcf_precomp_jpg_quality_notice'); ?></span>
             </p>
           </div>
         </div>
       </fieldset>
+
       <div class="rex-form-row">
         <p class="rex-form-submit">
           <input type="submit" class="rex-form-submit" name="btn_save" value="<?php echo $dcf_I18N->msg('dcf_precomp_save') ?>" />
         </p>
       </div>
+
     </form>
   </div>
 </div>
 
 <?php if (count($files)): ?>
   <div class="rex-addon-output" style="margin-top: 20px;">
-    <div id="rex-addon-editmode" class="rex-form">
+    <div class="rex-form">
       <form action="index.php?subpage=scale&amp;page=decaf_upload_precompressor&amp;initial=<?php echo count($files) ?>" method="post" target="scaling_frame">
+
         <fieldset class="rex-form-col-1">
           <div class="rex-form-wrapper">
             <h3 class="rex-hl2"><?php echo $dcf_I18N->msg('dcf_precomp_headline_update') ?> (<?php echo count($files) ?>)</h3>
@@ -197,11 +210,13 @@ if (rex_get('subpage') == 'scale') {
             </div>
           </div>
         </fieldset>
+
         <div class="rex-form-row">
           <p class="rex-form-submit">
             <input type="submit" class="rex-form-submit" name="btn_update" value="<?php echo $dcf_I18N->msg('dcf_precomp_update') ?>" onclick="if(!confirm('<?php echo $dcf_I18N->msg('dcf_precomp_confirm_update') ?>')) return false;" />
           </p>
         </div>
+
       </form>
     </div>
   </div>

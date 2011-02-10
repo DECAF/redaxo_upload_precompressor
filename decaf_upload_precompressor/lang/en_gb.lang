@@ -1,14 +1,16 @@
 dcf_precomp_menu                = Image compressor
 
 dcf_precomp_headline            = Scale down images on upload
-dcf_precomp_configuration       = Configuration
 
+dcf_precomp_intro               = <strong>Please note:</strong> Image scaling requires some server-side RAM. Running out of memory, the server will abort with an error (»Fatal error«). This cannot be prevented by the addon. It will not cause any damage, but the user has to reload the page manually.<br />Recommended memory when using this addon: At least 32 MB, even better 64 MB.
+
+dcf_precomp_configuration       = Configuration
 dcf_precomp_max_pixel           = Max. size (pixel)
 dcf_precomp_max_pixel_notice    = Images will be reduced to the specified max size when uploaded to the media pool.
 dcf_precomp_jpg_quality         = JPG quality (percent)
 dcf_precomp_jpg_quality_notice  = Quality of the reduced images in the media pool.
 
-dcf_precomp_save                = Save
+dcf_precomp_save                = Save configuration
 dcf_precomp_cancel              = Cancel
 dcf_precomp_update              = Scale down images now
 

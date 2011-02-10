@@ -28,18 +28,26 @@ if ($REX['REDAXO'])
 $error = false;
 $err_msg = array();
 
-// check if /config is writable
-if (!is_writable($base_path.'/config/'))
+// check for REX version < 4.3
+if ($REX['VERSION'] <= 4 && $REX['SUBVERSION'] < 3)
 {
+  $err_msg[] = $dcf_I18N->msg('dcf_precomp_rex_version');
   $error = true;
-  $err_msg[] = $dcf_I18N->msg('dcf_precomp_config_dir_locked');
 }
+else {
+  // check if /config is writable
+  if (!is_writable($base_path.'/config/'))
+  {
+    $error = true;
+    $err_msg[] = $dcf_I18N->msg('dcf_precomp_config_dir_locked');
+  }
 
-$available_memory = getMemoryLimitInMb();
-if ($available_memory < 32 && $available_memory != -1) 
-{
-  $err_msg[] = $dcf_I18N->msg('dcf_precomp_insufficient_memory');
-  $error = true;
+  $available_memory = getMemoryLimitInMb();
+  if ($available_memory < 32 && $available_memory != -1) 
+  {
+    $err_msg[] = $dcf_I18N->msg('dcf_precomp_insufficient_memory');
+    $error = true;
+  }
 }
 
 if (!$error) 

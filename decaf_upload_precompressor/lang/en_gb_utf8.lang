@@ -28,3 +28,4 @@ dcf_precomp_config_save_error   = Error saving configuration!
 dcf_precomp_config_saved        = Saved changes to configuration!
 
 dcf_precomp_insufficient_memory = The Addon requires at least 32M memory server-side!
+dcf_precomp_rex_version         = The addon requires at least REDAXO 4.3!

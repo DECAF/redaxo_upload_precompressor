@@ -28,3 +28,4 @@ dcf_precomp_config_save_error   = Fehler beim speichern der Konfiguration!
 dcf_precomp_config_saved        = Konfiguration erfolgreich gespeichert!
 
 dcf_precomp_insufficient_memory = Zur Verwendung des Addons sind mindestens 32 MB Arbeitsspeicher auf dem Server erforderlich!
+dcf_precomp_rex_version         = Das Addon ist erst ab REDAXO 4.3 lauffähig!

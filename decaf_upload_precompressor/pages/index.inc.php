@@ -211,6 +211,3 @@ if (rex_get('subpage') == 'scale') {
 <?php endif ?>
 <?php
   require $REX['INCLUDE_PATH'].'/layout/bottom.php';
-
-  $used_mem = round((memory_get_usage(TRUE) / 1024 / 1024), 2);
-  echo $used_mem.'MB';

@@ -9,8 +9,6 @@
  */
 
 $mypage = 'decaf_upload_precompressor';
-$min_memory_mb = 32;
-
 
 $base_path = $REX['INCLUDE_PATH'] .'/addons/'.$mypage;
 
@@ -28,24 +26,23 @@ if ($REX['REDAXO'])
 }
 
 $error = false;
+$err_msg = array();
 
 // check if /config is writable
 if (!is_writable($base_path.'/config/'))
 {
-  echo rex_warning($dcf_I18N->msg('dcf_precomp_config_dir_locked'));
   $error = true;
+  $err_msg[] = $dcf_I18N->msg('dcf_precomp_config_dir_locked');
 }
-// check if php has enough memory
+
 $available_memory = getMemoryLimitInMb();
-echo $available_memory;
-if ($available_memory < 32) 
+if ($available_memory < 32 && $available_memory != -1) 
 {
-  echo rex_warning($dcf_I18N->msg('dcf_precomp_insufficient_memory'));
+  $err_msg[] = $dcf_I18N->msg('dcf_precomp_insufficient_memory');
   $error = true;
 }
 
-
-if (!$error)
+if (!$error) 
 {
   // check if config.ini exists
   $file = $base_path.'/config/config.ini.php';
@@ -67,10 +64,16 @@ if (!$error)
 {
   $REX['ADDON']['install'][$mypage] = true;
 }
+else
+{
+  $REX['ADDON']['installmsg']['decaf_upload_precompressor'] = implode('<br />', $err_msg);
+}
+
 
 function getMemoryLimitInMb()
 {
   $ml = @ini_get('memory_limit');
+  if ($ml == 0) return -1;
   $unit = substr($ml,strlen($ml)-1, 1);
   switch ($unit) {
     case 'G' :
@@ -90,5 +93,4 @@ function getMemoryLimitInMb()
   }
   return $memory;
 }
-
 ?>

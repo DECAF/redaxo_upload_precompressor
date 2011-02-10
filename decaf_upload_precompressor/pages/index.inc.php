@@ -85,7 +85,7 @@ if (rex_get('subpage') == 'scale') {
   if (rex_post('btn_update', 'string') != '' || rex_get('update_continue')) {
     ob_start();
     echo '<span style="font-family: sans-serif; font-size: 12px;">'.$dcf_I18N->msg('dcf_precomp_caption_progress').'</span><br />';
-    echo '<table cellpadding=0 cellspacing=0 border=0 style="height: 32px; width: 100%"><tr><td style="width: '.$td_width.'%; background: #189d44; color: #fff; font-size: 12px; font-weight: bold; font-family: sans-serif; text-align: left">&nbsp;&nbsp;'.$progress.'</td><td style="width:'.$td2_width.'%; text-align: right; font-size: 12px; font-weight: bold; font-family: sans-serif">&nbsp;</td></tr></table>';
+    echo '<table cellpadding=0 cellspacing=0 border=0 style="height: 32px; width: 100%"><tr><td style="width: '.$td_width.'%; background: #3c9ed0; color: #fff; font-size: 12px; font-weight: bold; font-family: sans-serif; text-align: left">&nbsp;&nbsp;'.$progress.'</td><td style="width:'.$td2_width.'%; text-align: right; font-size: 12px; font-weight: bold; font-family: sans-serif">&nbsp;</td></tr></table>';
     if (!count($files))
     {
       echo '<br /><span style="font-family: sans-serif; font-size: 12px; font-weight: bold">'.$dcf_I18N->msg('dcf_precomp_caption_finished').'</span>';

@@ -73,7 +73,7 @@ else
 function getMemoryLimitInMb()
 {
   $ml = @ini_get('memory_limit');
-  if ($ml == 0) return -1;
+  if ($ml == -1) return -1;
   $unit = substr($ml,strlen($ml)-1, 1);
   switch ($unit) {
     case 'G' :

@@ -26,3 +26,5 @@ dcf_precomp_caption_finished    = Finished scaling images!
 dcf_precomp_config_dir_locked   = The configuration folder (./config) is locked.
 dcf_precomp_config_save_error   = Error saving configuration!
 dcf_precomp_config_saved        = Saved changes to configuration!
+
+dcf_precomp_insufficient_memory = memory_limit too low. At least 32MB required.

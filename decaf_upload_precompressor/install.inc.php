@@ -9,6 +9,8 @@
  */
 
 $mypage = 'decaf_upload_precompressor';
+$min_memory_mb = 32;
+
 
 $base_path = $REX['INCLUDE_PATH'] .'/addons/'.$mypage;
 
@@ -33,7 +35,17 @@ if (!is_writable($base_path.'/config/'))
   echo rex_warning($dcf_I18N->msg('dcf_precomp_config_dir_locked'));
   $error = true;
 }
-else 
+// check if php has enough memory
+$available_memory = getMemoryLimitInMb();
+echo $available_memory;
+if ($available_memory < 32) 
+{
+  echo rex_warning($dcf_I18N->msg('dcf_precomp_insufficient_memory'));
+  $error = true;
+}
+
+
+if (!$error)
 {
   // check if config.ini exists
   $file = $base_path.'/config/config.ini.php';
@@ -54,6 +66,29 @@ else
 if (!$error) 
 {
   $REX['ADDON']['install'][$mypage] = true;
+}
+
+function getMemoryLimitInMb()
+{
+  $ml = @ini_get('memory_limit');
+  $unit = substr($ml,strlen($ml)-1, 1);
+  switch ($unit) {
+    case 'G' :
+    case 'g' :
+     $memory = (substr($ml,0, strlen($ml)-1) * 1024);
+     break;
+    case 'M' :
+    case 'm' :
+     $memory = substr($ml,0, strlen($ml)-1);
+     break;
+    case 'K' :
+    case 'k' :
+      $memory = round((substr($ml,0, strlen($ml)-1) / 1024), 0);
+      break;
+    default:
+      $memory = round(($ml / 1024 / 1024), 0);
+  }
+  return $memory;
 }
 
 ?>

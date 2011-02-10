@@ -26,3 +26,5 @@ dcf_precomp_caption_finished    = Fertig!
 dcf_precomp_config_dir_locked   = Das Konfigurationsverzeichnis (./config) ist schreibgeschützt.
 dcf_precomp_config_save_error   = Fehler beim speichern der Konfiguration!
 dcf_precomp_config_saved        = Konfiguration erfolgreich gespeichert!
+
+dcf_precomp_insufficient_memory = memory_limit zu niedrig. Mindestens 32MB erforderlich.

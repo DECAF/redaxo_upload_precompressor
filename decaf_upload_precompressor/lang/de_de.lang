@@ -2,7 +2,7 @@ dcf_precomp_menu                = Bildverkleinerung
 
 dcf_precomp_headline            = Bilder beim Upload verkleinern
 
-dcf_precomp_intro               = <strong>Bitte beachten:</strong> Das Skalieren von Bildern erfordert viel Arbeitsspeicher vom Server. Reicht der Speicher nicht aus, wird der Server mit einer Fehlermeldung (&raquo;Fatal error&laquo;) abbrechen. Dies kann vom Addon leider nicht unterbunden werden. Ein Schaden sollte dabei nicht entstehen. Die Website muss danach vom Benutzer manuell neu aufgerufen werden.<br />Empfohlener Arbeitsspeicher bei der Verwendung dieses Addons: Mindestens 32 MB, besser 64 MB.
+dcf_precomp_intro               = <strong>Bitte beachten:</strong> Das Skalieren von Bildern erfordert viel Arbeitsspeicher vom Server. Reicht der Speicher nicht aus, wird der Server stoppen oder mit einer Fehlermeldung (&raquo;Fatal error&laquo;) abbrechen. Dies kann vom Addon leider nicht unterbunden werden. Ein Schaden sollte dabei nicht entstehen.<br />Empfohlener Arbeitsspeicher bei der Verwendung dieses Addons: Mindestens 32 MB, besser 64 MB.
 
 dcf_precomp_configuration       = Konfiguration
 dcf_precomp_max_pixel           = Max. Kantenl&auml;nge (px)

@@ -28,11 +28,9 @@ if ($REX['REDAXO'])
   else {
     $be_lang = $REX['LANG'];
   }
-
-  $dcf_I18N = new i18n($be_lang, $REX['INCLUDE_PATH'].'/addons/'.$mypage.'/lang/');
-  $dcf_I18N->loadTexts();
-
-  $REX['ADDON']['name'][$mypage]    = $dcf_I18N->msg("dcf_precomp_menu");
+  $I18N->appendFile($REX['INCLUDE_PATH'].'/addons/'.$mypage.'/lang/');
+  
+  $REX['ADDON']['name'][$mypage]    = $I18N->msg("dcf_precomp_menu");
 
   // include extension point only in backend
   require_once($REX['INCLUDE_PATH']."/addons/".$mypage."/extensions/extension.".$mypage.".inc.php");

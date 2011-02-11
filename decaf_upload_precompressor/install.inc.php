@@ -21,8 +21,7 @@ if ($REX['REDAXO'])
   else {
     $be_lang = $REX['LANG'];
   }
-  $dcf_I18N = new i18n($be_lang, $REX['INCLUDE_PATH'].'/addons/'.$mypage.'/lang/');
-  $dcf_I18N->loadTexts();
+  $I18N->appendFile($REX['INCLUDE_PATH'].'/addons/'.$mypage.'/lang/');
 }
 
 $error = false;
@@ -31,7 +30,7 @@ $err_msg = array();
 // check for REX version < 4.3
 if ( ($REX['VERSION'] < 4) || ($REX['VERSION'] == 4 && $REX['SUBVERSION'] < 3) )
 {
-  $err_msg[] = $dcf_I18N->msg('dcf_precomp_rex_version');
+  $err_msg[] = $I18N->msg('dcf_precomp_rex_version');
   $error = true;
 }
 else {
@@ -39,13 +38,13 @@ else {
   if (!is_writable($base_path.'/config/'))
   {
     $error = true;
-    $err_msg[] = $dcf_I18N->msg('dcf_precomp_config_dir_locked');
+    $err_msg[] = $I18N->msg('dcf_precomp_config_dir_locked');
   }
 
   $available_memory = getMemoryLimitInMb();
   if ($available_memory < 32 && $available_memory != -1) 
   {
-    $err_msg[] = $dcf_I18N->msg('dcf_precomp_insufficient_memory');
+    $err_msg[] = $I18N->msg('dcf_precomp_insufficient_memory');
     $error = true;
   }
 }

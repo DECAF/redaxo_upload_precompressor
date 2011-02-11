@@ -13,7 +13,7 @@ $mypage = 'decaf_upload_precompressor';
 $page = rex_request('page', 'string');
 
 require $REX['INCLUDE_PATH'].'/layout/top.php';
-rex_title($dcf_I18N->msg('dcf_precomp_headline'), $REX['ADDON']['pages'][$mypage]);
+rex_title($I18N->msg('dcf_precomp_headline'), $REX['ADDON']['pages'][$mypage]);
 
 
 if (rex_post('btn_save', 'string') != '')
@@ -23,7 +23,7 @@ if (rex_post('btn_save', 'string') != '')
 
   if($message === true)
   {
-    $message  = $dcf_I18N->msg('dcf_precomp_config_save_error');
+    $message  = $I18N->msg('dcf_precomp_config_save_error');
     $tpl      = rex_get_file_contents($REX['INCLUDE_PATH'] .'/addons/'.$mypage.'/config/_config.ini.php');
     $search   = array();
     $replace  = array();
@@ -36,7 +36,7 @@ if (rex_post('btn_save', 'string') != '')
     $config_str = str_replace($search, $replace, $tpl);
     if (file_put_contents($REX['INCLUDE_PATH'] .'/addons/'.$mypage.'/config/config.ini.php', $config_str))
     {
-      $message  = $dcf_I18N->msg('dcf_precomp_config_saved');
+      $message  = $I18N->msg('dcf_precomp_config_saved');
     }
   }
 }
@@ -84,14 +84,14 @@ if (rex_get('subpage') == 'scale') {
 
   if (rex_post('btn_update', 'string') != '' || rex_get('update_continue')) {
     ob_start();
-    echo '<span style="font-family: sans-serif; font-size: 12px;">'.$dcf_I18N->msg('dcf_precomp_caption_progress').'</span><br />';
+    echo '<span style="font-family: sans-serif; font-size: 12px;">'.$I18N->msg('dcf_precomp_caption_progress').'</span><br />';
     echo '<table cellpadding=0 cellspacing=0 border=0 style="height: 32px; width: 100%"><tr><td style="width: '.$td_width.'%; background: #3c9ed0; color: #fff; font-size: 12px; font-weight: bold; font-family: sans-serif; text-align: left">&nbsp;&nbsp;'.$progress.'</td><td style="width:'.$td2_width.'%; text-align: right; font-size: 12px; font-weight: bold; font-family: sans-serif">&nbsp;</td></tr></table>';
     if (!count($files))
     {
-      echo '<br /><span style="font-family: sans-serif; font-size: 12px; font-weight: bold">'.$dcf_I18N->msg('dcf_precomp_caption_finished').'</span>';
+      echo '<br /><span style="font-family: sans-serif; font-size: 12px; font-weight: bold">'.$I18N->msg('dcf_precomp_caption_finished').'</span>';
     } else
     {
-      echo '<br /><span style="font-family: sans-serif; font-size: 12px;">'.$dcf_I18N->msg('dcf_precomp_no_reload').'</span>';
+      echo '<br /><span style="font-family: sans-serif; font-size: 12px;">'.$I18N->msg('dcf_precomp_no_reload').'</span>';
     }
     $i=0;
     foreach($files as $file)
@@ -157,26 +157,26 @@ if (rex_get('subpage') == 'scale') {
         <div class="rex-form-wrapper">
           <h3 class="rex-hl2">Upload Precompressor</h3>
           <div class="rex-area-content">
-            <p class="rex-tx1"><?php echo $dcf_I18N->msg('dcf_precomp_intro'); ?></p>
+            <p class="rex-tx1"><?php echo $I18N->msg('dcf_precomp_intro'); ?></p>
           </div>
         </div>
       </fieldset>
 
       <fieldset class="rex-form-col-1">
-        <legend><?php echo $dcf_I18N->msg('dcf_precomp_configuration'); ?></legend>
+        <legend><?php echo $I18N->msg('dcf_precomp_configuration'); ?></legend>
         <div class="rex-form-wrapper">
           <div class="rex-form-row">
             <p class="rex-form-col-a rex-form-text">
-              <label for="max_width"><?php echo $dcf_I18N->msg('dcf_precomp_max_pixel'); ?></label>
+              <label for="max_width"><?php echo $I18N->msg('dcf_precomp_max_pixel'); ?></label>
               <input class="rex-form-text" style="width: 100px;" type="text" name="max_pixel" id="max_pixel" value="<?php echo $dcf_precomp_config['dcf_precomp']['max_pixel'] ?>" />
-              <span class="rex-form-notice"><?php echo $dcf_I18N->msg('dcf_precomp_max_pixel_notice'); ?></span>
+              <span class="rex-form-notice"><?php echo $I18N->msg('dcf_precomp_max_pixel_notice'); ?></span>
             </p>
           </div>
           <div class="rex-form-row">
             <p class="rex-form-col-a rex-form-text">
-              <label for="jpg_quality"><?php echo $dcf_I18N->msg('dcf_precomp_jpg_quality'); ?></label>
+              <label for="jpg_quality"><?php echo $I18N->msg('dcf_precomp_jpg_quality'); ?></label>
               <input class="rex-form-text" style="width: 100px;" type="text" name="jpg_quality" id="jpg_quality" value="<?php echo $dcf_precomp_config['dcf_precomp']['jpg_quality'] ?>" />
-              <span class="rex-form-notice"><?php echo $dcf_I18N->msg('dcf_precomp_jpg_quality_notice'); ?></span>
+              <span class="rex-form-notice"><?php echo $I18N->msg('dcf_precomp_jpg_quality_notice'); ?></span>
             </p>
           </div>
         </div>
@@ -184,7 +184,7 @@ if (rex_get('subpage') == 'scale') {
 
       <div class="rex-form-row">
         <p class="rex-form-submit">
-          <input type="submit" class="rex-form-submit" name="btn_save" value="<?php echo $dcf_I18N->msg('dcf_precomp_save') ?>" />
+          <input type="submit" class="rex-form-submit" name="btn_save" value="<?php echo $I18N->msg('dcf_precomp_save') ?>" />
         </p>
       </div>
 
@@ -199,13 +199,13 @@ if (rex_get('subpage') == 'scale') {
 
         <fieldset class="rex-form-col-1">
           <div class="rex-form-wrapper">
-            <h3 class="rex-hl2"><?php echo $dcf_I18N->msg('dcf_precomp_headline_update') ?> (<?php echo count($files) ?>)</h3>
+            <h3 class="rex-hl2"><?php echo $I18N->msg('dcf_precomp_headline_update') ?> (<?php echo count($files) ?>)</h3>
             <div class="rex-form-row">
               <p class="rex-form-col-a rex-form-text">
-                <span class="rex-form-notice"><?php echo $dcf_I18N->msg('dcf_precomp_info_update') ?></span>
+                <span class="rex-form-notice"><?php echo $I18N->msg('dcf_precomp_info_update') ?></span>
               </p>
               <p class="rex-form-col-a rex-form-text">
-                <span class="rex-form-notice"><?php echo $dcf_I18N->msg('dcf_precomp_backup_update') ?></span>
+                <span class="rex-form-notice"><?php echo $I18N->msg('dcf_precomp_backup_update') ?></span>
               </p>
             </div>
           </div>
@@ -213,7 +213,7 @@ if (rex_get('subpage') == 'scale') {
 
         <div class="rex-form-row">
           <p class="rex-form-submit">
-            <input type="submit" class="rex-form-submit" name="btn_update" value="<?php echo $dcf_I18N->msg('dcf_precomp_update') ?>" onclick="if(!confirm('<?php echo $dcf_I18N->msg('dcf_precomp_confirm_update') ?>')) return false;" />
+            <input type="submit" class="rex-form-submit" name="btn_update" value="<?php echo $I18N->msg('dcf_precomp_update') ?>" onclick="if(!confirm('<?php echo $I18N->msg('dcf_precomp_confirm_update') ?>')) return false;" />
           </p>
         </div>
 

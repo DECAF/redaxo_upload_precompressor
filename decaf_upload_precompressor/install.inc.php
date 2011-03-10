@@ -59,9 +59,9 @@ if (!$error)
     $tpl = rex_get_file_contents($base_path.'/config/_config.ini.php');
     // set defaults
     $search[]   = '@@max_pixel@@';
-    $replace[]  = '1500';
+    $replace[]  = '1200';
     $search[]   = '@@jpg_quality@@';
-    $replace[]  = '90';
+    $replace[]  = '85';
     $config_str = str_replace($search, $replace, $tpl);
     file_put_contents($base_path.'/config/config.ini.php', $config_str);
   }

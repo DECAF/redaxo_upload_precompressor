@@ -46,7 +46,7 @@ function decaf_upload_precompressor($params)
         $source = imagecreatefromjpeg($REX['MEDIAFOLDER'].'/'.$params['filename']);
 
         // Resize
-        imagecopyresized($image, $source, 0, 0, 0, 0, $newwidth, $newheight, $params['width'], $params['height']);
+        imagecopyresampled($image, $source, 0, 0, 0, 0, $newwidth, $newheight, $params['width'], $params['height']);
 
         // save Image
         imagejpeg($image, $REX['MEDIAFOLDER'].'/'.$params['filename'], $dcf_precomp_config['dcf_precomp']['jpg_quality']);

@@ -12,7 +12,7 @@ $mypage = 'decaf_upload_precompressor';
 
 $REX['ADDON']['rxid'][$mypage]    = "839";
 $REX['ADDON']['page'][$mypage]    = $mypage;
-$REX['ADDON']['version'][$mypage] = "1.0.1";
+$REX['ADDON']['version'][$mypage] = "1.0.2";
 $REX['ADDON']['author'][$mypage]  = "Sven Kesting <sk@decaf.de>, DECAF";
 $REX['ADDON']['perm'][$mypage]    = "admin[]";
 

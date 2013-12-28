@@ -2,10 +2,8 @@
 /**
  * decaf_upload_precompressor
  *
- * @author Sven Kesting <sk@decaf.de>
- * @author <a href="http://www.decaf.de">www.decaf.de</a>
- * @package redaxo4
- * @version $Id: help.inc.php 79 2010-12-20 16:50:05Z sk $
+ * @author DECAF
+ * @version $Id$
  */
 ?>
 <style type="text/css" media="screen">

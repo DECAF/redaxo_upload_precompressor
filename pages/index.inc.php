@@ -2,13 +2,12 @@
 /**
  * decaf_upload_precompressor
  *
- * @author Sven Kesting <sk@decaf.de>
- * @author <a href="http://www.decaf.de">www.decaf.de</a>
- * @package redaxo4
- * @version $Id: index.inc.php 21 2010-11-29 14:38:19Z sk $
+ * @author DECAF
+ * @version $Id$
  */
 
 $mypage = 'decaf_upload_precompressor';
+$message = false;
 
 $page = rex_request('page', 'string');
 
@@ -66,7 +65,7 @@ foreach ($scalable_mime_types as $type)
 }
 $where = substr($where, 0, strlen($where)-3).') ';
 $where .= "AND (width > ".$max_pixel." OR height > ".$max_pixel.")";
-$FILESQL->setWhere($where . ' ORDER BY pixel asc'); // rex_sql has no special method for adding sort-order, yay!
+$FILESQL->setWhere($where . ' ORDER BY pixel asc'); // rex_sql has no special method for adding sort-order
 $FILESQL->select('*, (width * height) AS pixel');
 
 $files = $FILESQL->getArray();
@@ -137,13 +136,13 @@ if (rex_get('subpage') == 'scale') {
           document.location.href="index.php?page=decaf_upload_precompressor&subpage=scale&update_continue=1&initial='.$initial.'";
         </script>';
         flush();
-        ob_flush();
+        if( ob_get_level() > 0 ) ob_flush();
         exit;
       }
     }
   }
   flush();
-  ob_flush();
+  if( ob_get_level() > 0 ) ob_flush();
   exit;
 }
 

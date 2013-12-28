@@ -87,7 +87,7 @@ function unregister_rex_extension($ext_point, $funcname)
   global $REX;
 
   $extensions = &$REX['EXTENSIONS'][$ext_point]; // REX < 4.5
-  if (is_array($extensions[-1])) {
+  if (isset($extensions[-1]) && is_array($extensions[-1])) {
     $extensions = &$REX['EXTENSIONS'][$ext_point][-1]; // REX >= 4.5
   }
 

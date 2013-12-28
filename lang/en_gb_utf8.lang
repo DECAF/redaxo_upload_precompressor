@@ -2,7 +2,7 @@ dcf_precomp_menu                = Image compressor
 
 dcf_precomp_headline            = Scale down images on upload
 
-dcf_precomp_intro               = <strong>Please note:</strong> Image scaling requires some server-side RAM. Running out of memory, the server will stop or abort with an error (»Fatal error«). This cannot be prevented by the addon. It should not cause any damage.<br />Recommended memory when using this addon: At least 32 MB, even better 64 MB.
+dcf_precomp_intro               = <strong>Please note:</strong> Image scaling requires some server-side RAM. Running out of memory, the server will stop or abort with an error (»Fatal error«). This cannot be prevented by the addon. It should not cause any damage.<br />Recommended memory when using this addon: At least 64 MB, even better 128 MB.
 
 dcf_precomp_configuration       = Configuration
 dcf_precomp_max_pixel           = Max. size (pixel)
@@ -27,5 +27,5 @@ dcf_precomp_config_dir_locked   = The configuration folder (./config) is locked.
 dcf_precomp_config_save_error   = Error saving configuration!
 dcf_precomp_config_saved        = Saved changes to configuration!
 
-dcf_precomp_insufficient_memory = The Addon requires at least 32M memory server-side!
+dcf_precomp_insufficient_memory = The Addon requires at least 64M memory server-side!
 dcf_precomp_rex_version         = The addon requires at least REDAXO 4.3!

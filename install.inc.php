@@ -40,7 +40,7 @@ else {
   }
 
   $available_memory = getMemoryLimitInMb();
-  if ($available_memory < 32 && $available_memory != -1) 
+  if ($available_memory < 64 && $available_memory != -1) 
   {
     $err_msg[] = $I18N->msg('dcf_precomp_insufficient_memory');
     $error = true;
@@ -59,7 +59,7 @@ if (!$error)
     $search[]   = '@@max_pixel@@';
     $replace[]  = '1200';
     $search[]   = '@@jpg_quality@@';
-    $replace[]  = '85';
+    $replace[]  = '90';
     $config_str = str_replace($search, $replace, $tpl);
     file_put_contents($base_path.'/config/config.ini.php', $config_str);
   }

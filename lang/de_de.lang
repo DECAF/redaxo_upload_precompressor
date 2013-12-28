@@ -2,7 +2,7 @@ dcf_precomp_menu                = Bildverkleinerung
 
 dcf_precomp_headline            = Bilder beim Upload verkleinern
 
-dcf_precomp_intro               = <strong>Bitte beachten:</strong> Das Skalieren von Bildern erfordert viel Arbeitsspeicher vom Server. Reicht der Speicher nicht aus, wird der Server stoppen oder mit einer Fehlermeldung (&raquo;Fatal error&laquo;) abbrechen. Dies kann vom Addon leider nicht unterbunden werden. Ein Schaden sollte dabei nicht entstehen.<br />Empfohlener Arbeitsspeicher bei der Verwendung dieses Addons: Mindestens 32 MB, besser 64 MB.
+dcf_precomp_intro               = <strong>Bitte beachten:</strong> Das Skalieren von Bildern erfordert viel Arbeitsspeicher vom Server. Reicht der Speicher nicht aus, wird der Server stoppen oder mit einer Fehlermeldung (&raquo;Fatal error&laquo;) abbrechen. Dies kann vom Addon leider nicht unterbunden werden. Ein Schaden sollte dabei nicht entstehen.<br />Empfohlener Arbeitsspeicher bei der Verwendung dieses Addons: Mindestens 64 MB, besser 128 MB.
 
 dcf_precomp_configuration       = Konfiguration
 dcf_precomp_max_pixel           = Max. Kantenl&auml;nge (px)
@@ -27,5 +27,5 @@ dcf_precomp_config_dir_locked   = Das Konfigurationsverzeichnis (./config) ist s
 dcf_precomp_config_save_error   = Fehler beim speichern der Konfiguration!
 dcf_precomp_config_saved        = Konfiguration erfolgreich gespeichert!
 
-dcf_precomp_insufficient_memory = Zur Verwendung des Addons sind mindestens 32 MB Arbeitsspeicher auf dem Server erforderlich!
+dcf_precomp_insufficient_memory = Zur Verwendung des Addons sind mindestens 64 MB Arbeitsspeicher auf dem Server erforderlich!
 dcf_precomp_rex_version         = Das Addon ist erst ab REDAXO 4.3 lauff&auml;hig!

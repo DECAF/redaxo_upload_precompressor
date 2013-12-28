@@ -2,18 +2,16 @@
 /**
  * decaf_upload_precompressor
  *
- * @author Sven Kesting <sk@decaf.de>
- * @author <a href="http://www.decaf.de">www.decaf.de</a>
- * @package redaxo4
- * @version $Id: config.inc.php 20 2010-11-29 14:31:27Z sk $
+ * @author DECAF
+ * @version $Id$
  */
 
 $mypage = 'decaf_upload_precompressor';
 
 $REX['ADDON']['rxid'][$mypage]    = "839";
 $REX['ADDON']['page'][$mypage]    = $mypage;
-$REX['ADDON']['version'][$mypage] = "1.0.2";
-$REX['ADDON']['author'][$mypage]  = "Sven Kesting <sk@decaf.de>, DECAF";
+$REX['ADDON']['version'][$mypage] = "1.1";
+$REX['ADDON']['author'][$mypage]  = "DECAF";
 $REX['ADDON']['perm'][$mypage]    = "admin[]";
 
 

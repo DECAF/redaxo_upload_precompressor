@@ -12,7 +12,7 @@ $message = false;
 $page = rex_request('page', 'string');
 
 require $REX['INCLUDE_PATH'].'/layout/top.php';
-rex_title($I18N->msg('dcf_precomp_headline'), $REX['ADDON']['pages'][$mypage]);
+rex_title($I18N->msg('dcf_precomp_headline'));
 
 
 if (rex_post('btn_save', 'string') != '')

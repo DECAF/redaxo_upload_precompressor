@@ -2,17 +2,24 @@
 /**
  * decaf_upload_precompressor
  *
- * @author Sven Kesting <sk@decaf.de>
- * @author <a href="http://www.decaf.de">www.decaf.de</a>
- * @package redaxo4
- * @version $Id: extension.decaf_upload_precompressor.inc.php 78 2010-12-20 16:47:31Z sk $
+ * @author DECAF
+ * @version $Id$
  */
 if (!isset($RETURN)) 
 {
   $RETURN = '';
 }
 
-rex_register_extension('MEDIA_ADDED', 'decaf_upload_precompressor', $RETURN);
+
+if ( ($REX['VERSION'] < 4) || ($REX['VERSION'] == 4 && $REX['SUBVERSION'] < 5) )
+{
+  rex_register_extension('MEDIA_ADDED', 'decaf_upload_precompressor', array()); // REX < 4.5
+}
+else
+{
+  rex_register_extension('MEDIA_ADDED', 'decaf_upload_precompressor', array(), REX_EXTENSION_EARLY); // REX >= 4.5, use early EP
+}
+
 
 function decaf_upload_precompressor($params)
 {
@@ -73,17 +80,22 @@ function decaf_upload_precompressor($params)
 
 
 /**
- * Workaround for another redaxo featurebug - extension point "MEDIA_ADDED"
- * is registered twice in core.
+ * Workaround: Due to EP "MEDIA_ADDED" registered twice in core, dismiss ours.
  */
 function unregister_rex_extension($ext_point, $funcname)
 {
   global $REX;
-  for($i=0; $i<count($REX['EXTENSIONS'][$ext_point]); $i++)
+
+  $extensions = &$REX['EXTENSIONS'][$ext_point]; // REX < 4.5
+  if (is_array($extensions[-1])) {
+    $extensions = &$REX['EXTENSIONS'][$ext_point][-1]; // REX >= 4.5
+  }
+
+  for($i=0; $i<count($extensions); $i++)
   {
-    if ($REX['EXTENSIONS'][$ext_point][$i][0] == $funcname)
+    if ($extensions[$i][0] == $funcname)
     {
-      unset($REX['EXTENSIONS'][$ext_point][$i]);
+      unset($extensions[$i]);
     }
   }
 }

@@ -1,4 +1,4 @@
-_**Github-Hinweis:** Beim Download von Github bitte daran denken, das entpackte Verzeichnis umzubenennen in `decaf_upload_precompressor` (statt redaxo_upload_precompressor)!_
+__**Github-Hinweis:** Beim Download von Github bitte daran denken, das entpackte Verzeichnis umzubenennen in `decaf_upload_precompressor` (statt redaxo_upload_precompressor)!__
 
 # [Upload Precompressor](http://www.redaxo.org/de/download/addons/?addon_id=839)
 

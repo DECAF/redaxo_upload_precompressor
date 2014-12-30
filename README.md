@@ -1,4 +1,15 @@
-__**Github-Hinweis:** Beim Download von Github bitte daran denken, das entpackte Verzeichnis umzubenennen in `decaf_upload_precompressor` (statt redaxo_upload_precompressor)!__
+--------------------------------------------------
+
+**Dieses Projekt wird nicht weiter gepflegt.**  
+Falls du es übernehmen und weiterentwickeln möchtest, [gib uns gerne bescheid](https://twitter.com/_DECAF)!
+
+--------------------------------------------------
+
+.  
+
+
+__**Github-Hinweis:** Beim Download von Github bitte daran denken, das entpackte Verzeichnis umzubenennen in `decaf_piwik_tracker` (statt redaxo_piwik_tracker)!__
+
 
 # [Upload Precompressor](http://www.redaxo.org/de/download/addons/?addon_id=839)
 

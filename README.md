@@ -1,7 +1,6 @@
 --------------------------------------------------
 
-**Dieses Projekt wird nicht weiter gepflegt.**  
-Falls du es übernehmen und weiterentwickeln möchtest, [gib uns gerne bescheid](https://twitter.com/_DECAF)!
+**Das Addon wird an dieser Stelle nicht weiter gepflegt. Es ist stattdessen in RexDude's [Backend Utilities](https://github.com/RexDude/be_utilities) aufgegangen.**  
 
 --------------------------------------------------
 
